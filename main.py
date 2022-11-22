@@ -16,8 +16,12 @@ while (True):
 
     if (angolVMagyar == "angol"):
         bemenet = list(kulcsSzo) + angolAbc
+        s = 5
+        o = 5
     else:
         bemenet = list(kulcsSzo) + magyarabc
+        s = 6
+        o = 6
 
     print(bemenet)
 
@@ -31,8 +35,8 @@ while (True):
     # -----------------------------------------------------------------------------------------------------------------------
     # matrix feltoltese
 
-    s = int(input("Add meg a sorok szamat:"))
-    o = int(input("Add meg az oszlopok szamat:"))
+    #s = int(input("Add meg a sorok szamat:"))
+    #o = int(input("Add meg az oszlopok szamat:"))
 
     matrix = [[0 for x in range(o)] for y in range(s)]
 
@@ -154,6 +158,8 @@ while (True):
         deKodMatrix.append(deKodLista[:2])
         deKodLista = deKodLista[2:]
 
+    print(deKodMatrix)
+
     # -----------------------------------------------------------------------------------------------------------------------
     # szoveg dekodolasa
     deKodoltLista = list()
@@ -179,11 +185,11 @@ while (True):
         elif (deKodMatrix[i][1] == deKodMatrix[i + 1][1]):
             if (balX == 0):
                 deKodoltLista.append(matrix[s-1][balY])
-            if (balX < s-1 and balX != 0):
+            if (balX <= s-1 and balX != 0):
                 deKodoltLista.append(matrix[balX - 1][balY])
             if (jobbX == 0):
                 deKodoltLista.append(matrix[s-1][jobbY])
-            if (jobbX < s-1 and jobbX != 0):
+            if (jobbX <= s-1 and jobbX != 0):
                 deKodoltLista.append(matrix[jobbX - 1][jobbY])
 
         # ha kulonbozo sorban van
